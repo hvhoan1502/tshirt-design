@@ -14,13 +14,15 @@ function isImage(url) {
   return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
 }
 
-document.getElementById("tshirt-color").addEventListener("change", function(){
+document.getElementById("tshirt-color").addEventListener("change", function() {
+  const updateElement = document.getElementById("tshirt-div");
+  updateElement.style.background = 'none';
   if (isImage(this.value)) {
-    document.getElementById("tshirt-div").style.backgroundImage = `url('${this.value}')`;
+    updateElement.style.backgroundImage = `url('${this.value}')`;
     return;
   }
 
-  document.getElementById("tshirt-div").style.backgroundColor = this.value;
+  updateElement.style.backgroundColor = this.value;
 });
 
 document.getElementById("tshirt-design").addEventListener("change", function(){
